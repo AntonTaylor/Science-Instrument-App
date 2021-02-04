@@ -168,7 +168,7 @@ class MainWindow:
         canvas.draw()
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand= False)
         # Save Button (implement)
-        save_btn = tk.Button(botframe, text="SAVE", bg='green', fg='white', relief='solid', height = 1, width= 10)
+        save_btn = tk.Button(botframe, text="SAVE", bg='green', fg='white', relief='solid', height = 1, width= 10, command=saveFile)
         save_btn.grid()
 
         ####### END defines Widgets ########
@@ -239,6 +239,19 @@ class MainWindow:
         self.numPoints -=1
         self.increment += 1
         #root.after(int(self.sec_per_point*1000), self.queryLoop)
+
+
+
+def saveFile():
+   file = tk.filedialog.asksaveasfile(defaultextension = '.txt',
+                                          filetypes= [
+                                          ("Text File", ".txt"),
+                                          ("CSV File", ".csv"),
+                                          ("All Files", "*")
+                                      ])
+
+
+
        
     
     
